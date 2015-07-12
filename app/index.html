@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title></title>
+
+        <link rel="stylesheet" href="assets/css/styles.min.css">
+    </head>
+    <body>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-xs-12">
+                   <h1 id="frontend-boilerplate">Frontend Boilerplate</h1>
+                </div>
+
+                <div class="col-sm-9">
+                    <p class="lead">This project is designed to provide a starting point for static website builds. It comes with some commonly used dependencies and the <a href="https://github.com/gulpjs/gulp">Gulp task runner</a> configured out of the box.</p>
+
+                    <hr />
+
+                    <h2 id="prerequisites"><a href="#prerequisites">#</a> Prerequisites</h2>
+                    <ul>
+                        <li><a href="https://nodejs.org/download/">Node.js</a> and npm (Node Package Manager, which now comes bundled with Node).</li>
+                        <li>A terminal. If you're on Windows and don't already have one I recommend Git Bash, which comes with <a href="https://msysgit.github.io/">Git for Windows</a> and is easy to setup.</li>
+                    </ul>
+
+                    <h2 id="installation"><a href="#installation">#</a> Installation</h2>
+                    <ul>
+                        <li><code>git clone https://github.com/danielmorgan/frontend-boilerplate.git</code></li>
+                        <li>Run <code>npm install</code> to install dependencies defined in <code>package.json</code>. This will install Gulp and all the plugins it needs to do things like compile Sass to CSS.</li>
+                        <li><code>gulp</code> to run the default Gulp task. <a href="https://github.com/BrowserSync/browser-sync">BrowserSync</a> will start up a server at <code>http://localhost:3000</code> and open it in your default browser.</li>
+                        <li>Make changes in your favourite editor. When you save a file Gulp will run the defined tasks on it and BrowserSync will refresh your browser.</li>
+                    </ul>
+
+                    <h2 id="gulp-tasks"><a href="#gulp-tasks">#</a> Gulp tasks</h2>
+                    <ul>
+                        <li><code>gulp</code> - Starts up BrowserSync then watches files for changes, running the relevant tasks.</li>
+                        <li><code>gulp css</code> - Compiles main.scss to one minified css file (with sourcemaps) and copies it to the dist folder. </li>
+                        <li><code>gulp fonts</code> - Copies fonts from <code>app/assets/font</code> to <code>dist/assets/font</code>.</li>
+                        <li><code>gulp images</code> - Copies images from <code>app/assets/img</code> to <code>dist/assets/img</code>.</li>
+                        <li><code>gulp html</code> - Copies anything directly in the <code>app/</code> directory to <code>dist/</code>, i.e. <code>index.html</code> and <code>.htaccess</code>.</li>
+                        <li><code>gulp deploy</code> - Runs through all the tasks and creates a ready to go <code>dist/</code> folder for deployment.</li>
+                    </ul>
+
+                    <h2 id="tips"><a href="#tips">#</a> Tips</h2>
+                    <ul>
+                        <li>Keep Sass files small, with a single responsibility, and a clear name.</li>
+                        <li>Don't go too deep with nested definitions, if it starts looking like a sideways pyramid, it might make sense to move some of it to a new file.</li>
+                        <li>Comment out the bits of Twitter Bootstrap you don't need in <code>app/assets/scss/vendor/bootstrap-custom.scss</code> to keep the final stylesheet free of bloat.</li>
+                        <li>Use 4 spaces instead of tabs for consistence, trim trailing whitespace and add a newline character at end of file.</li>
+                        <li>File paths are defined at the top of <code>gulpfile.js</code> if you wish to change the folder structure of the project.</li>
+                        <li>Don't rigidly stick to the project organisation I've laid out here if it doesn't make sense for the project you're working on. It's just a suggestion!</li>
+                    </ul>
+
+                    <h2 id="recommended-reading"><a href="#recommended-reading">#</a> Recommended Reading</h2>
+                    <ul>
+                        <li><a href="http://thesassway.com/beginner/how-to-structure-a-sass-project">How to structure a Sass project</a></li>
+                        <li><a href="https://smacss.com/">Scalable and Modular Architecture for CSS</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-3">
+                    <img src="assets/img/gulp.png" class="img-responsive center-block">
+                </div>
+            </div>
+
+        </div><!--/.container-->
+
+        <script src="assets/js/scripts.min.js"></script>
+    </body>
+</html>

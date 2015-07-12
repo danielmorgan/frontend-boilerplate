@@ -1,0 +1,63 @@
+@import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../font/opensans-regular-webfont.eot');
+    src: url('../font/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/opensans-regular-webfont.woff2') format('woff2'),
+         url('../font/opensans-regular-webfont.woff') format('woff'),
+         url('../font/opensans-regular-webfont.ttf') format('truetype'),
+         url('../font/opensans-regular-webfont.svg#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    color: $brand-neutral;
+    font-size: 14px;
+    @media (min-width: $screen-xs) { font-size: 15px; }
+    @media (min-width: $screen-sm) { font-size: 16px; }
+    @media (min-width: $screen-md) { font-size: 17px; }
+    @media (min-width: $screen-lg) { font-size: 18px; }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'OpenSans', sans-serif;
+    color: $brand-primary;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 2px solid fade-out($brand-primary, 0.8);
+}
+
+p {
+    font-family: 'OpenSans', sans-serif;
+    font-size: 1em;
+}
+
+p.lead {
+    margin: 0 0 1.5em;
+    font-size: 1.5em;
+}
+
+pre, code {
+    font-family: 'Inconsolata', monospace;
+    border: 1px dotted;
+}
+
+a {
+    color: $brand-secondary;
+    &:hover {
+        color: $brand-secondary + 50%;
+    }
+    &:active {
+        color: $brand-secondary - 50%;
+    }
+    &:visited {
+        color: desaturate($brand-secondary, 50%);
+    }
+}
