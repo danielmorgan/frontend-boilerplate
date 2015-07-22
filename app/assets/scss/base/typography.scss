@@ -1,4 +1,6 @@
-@import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);
+/* =============================================================================
+// FONTS
+/* ============================================================================= */
 
 @font-face {
     font-family: 'OpenSans';
@@ -12,41 +14,37 @@
     font-style: normal;
 }
 
+
+
+
+/* =============================================================================
+// TYPOGRAPHY
+/* ============================================================================= */
+
 body {
+    font-family: 'OpenSans', sans-serif;
     color: $brand-neutral;
     font-size: 14px;
-    @media (min-width: $screen-xs) { font-size: 15px; }
-    @media (min-width: $screen-sm) { font-size: 16px; }
-    @media (min-width: $screen-md) { font-size: 17px; }
-    @media (min-width: $screen-lg) { font-size: 18px; }
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'OpenSans', sans-serif;
-    color: $brand-primary;
-    font-weight: normal;
 }
 
 h1 {
-    font-size: 2em;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-bottom: 2px solid fade-out($brand-primary, 0.8);
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h4 {
+    font-size: 20px;
 }
 
 p {
     font-family: 'OpenSans', sans-serif;
-    font-size: 1em;
-}
-
-p.lead {
-    margin: 0 0 1.5em;
-    font-size: 1.5em;
-}
-
-pre, code {
-    font-family: 'Inconsolata', monospace;
-    border: 1px dotted;
 }
 
 a {

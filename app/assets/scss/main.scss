@@ -13,8 +13,27 @@
 @import "modules/mixins";
 
 /**
- * Partials
- * Individual components e.g. header, footer, post, typography, buttons, forms.
+ * Base
+ * Global CSS rules for project
  */
-@import "partials/body";
-@import "partials/typography";
+@import "base/global";
+@import "base/typography";
+@import "base/buttons";
+
+/**
+ * Layout
+ * Containing styles for the main layouts of the build 
+ */
+@import "layouts/grid";
+@import "layouts/global-layouts";
+@import "layouts/header";
+@import "layouts/footer";
+@import "layouts/navigation";
+@import "layouts/forms";
+@import "layouts/tables";
+
+/**
+ * Pages
+ * Custom individual page styles
+ */
+ @import "pages/index";

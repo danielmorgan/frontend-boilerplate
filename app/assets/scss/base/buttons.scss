@@ -1,0 +1,23 @@
+/* =============================================================================
+// BUTTONS
+/* ============================================================================= */
+
+.btn,
+button {
+    background: $brand-primary;
+    border: 0;
+    padding: 10px 20px;
+    color: #FFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 30px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase; 
+    @include transition;
+
+    &:hover {
+        color: #FFF;
+        background: lighten($brand-primary, 5%);
+    }
+}
