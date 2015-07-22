@@ -38,7 +38,8 @@
                     <h2 id="gulp-tasks"><a href="#gulp-tasks">#</a> Gulp tasks</h2>
                     <ul>
                         <li><code>gulp</code> - Starts up BrowserSync then watches files for changes, running the relevant tasks.</li>
-                        <li><code>gulp css</code> - Compiles main.scss to one minified css file (with sourcemaps) and copies it to the dist folder. </li>
+                        <li><code>gulp css</code> - Compiles main.scss to one minified css file (with sourcemaps) and copies it to the dist folder.</li>
+                        <li><code>gulp js</code> - Compiles JavaScript files (defined in the gulpfile, <code>path.scripts.includes</code>) to one minified JavaScript file with sourcemaps and copies it to the dist folder. You will need to modify <code>gulpfile.js</code> and restart the <code>gulp</code> task everytime you add a new JavaScript file.</li>
                         <li><code>gulp fonts</code> - Copies fonts from <code>app/assets/font</code> to <code>dist/assets/font</code>.</li>
                         <li><code>gulp images</code> - Copies images from <code>app/assets/img</code> to <code>dist/assets/img</code>.</li>
                         <li><code>gulp html</code> - Copies anything directly in the <code>app/</code> directory to <code>dist/</code>, i.e. <code>index.html</code> and <code>.htaccess</code>.</li>

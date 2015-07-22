@@ -18,7 +18,8 @@ This project is designed to provide a starting point for static website builds. 
 
 ## Gulp tasks
 * `gulp` - Starts up BrowserSync then watches files for changes, running the relevant tasks.
-* `gulp css` - Compiles main.scss to one minified css file (with sourcemaps) and copies it to the dist folder. 
+* `gulp css` - Compiles main.scss to one minified css file (with sourcemaps) and copies it to the dist folder.
+* `gulp js` - Compiles JavaScript files (defined in the gulpfile, `path.scripts.includes`) to one minified JavaScript file with sourcemaps and copies it to the dist folder. You will need to modify `gulpfile.js` and restart the `gulp` task everytime you add a new JavaScript file.
 * `gulp fonts` - Copies fonts from `app/assets/font` to `dist/assets/font`.
 * `gulp images` - Copies images from `app/assets/img` to `dist/assets/img`.
 * `gulp html` - Copies anything directly in the `app/` directory to `dist/`, i.e. `index.html` and `.htaccess`.

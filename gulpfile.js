@@ -12,13 +12,6 @@ var path = {
             'node_modules/bootstrap-sass/assets/stylesheets'
         ]
     },
-    scripts: {
-        src: 'app/assets/js',
-        files: 'app/assets/js/**/*.js',
-        dest: 'dist/assets/js',
-        entryPointFilename: 'index.js',
-        outputFilename: 'scripts.min.js',
-    },
     fonts: {
         src: 'app/assets/font',
         files: 'app/assets/font/**/*',
@@ -28,6 +21,14 @@ var path = {
         src: 'app/assets/img',
         files: 'app/assets/img/**/*',
         dest: 'dist/assets/img'
+    },
+    scripts: {
+        files: 'app/assets/js/**/*.js',
+        dest: 'dist/assets/js',
+        outputFilename: 'scripts.min.js',
+        includes: [
+            'app/assets/js/index.js',
+        ]
     }
 };
 
@@ -37,8 +38,9 @@ var autoPrefixBrowserList = ['last 2 version', 'safari 5', 'ie 8', 'ie 9', 'oper
 // load all of our dependencies
 var gulp            = require('gulp');
 var concat          = require('gulp-concat');
-var sass            = require('gulp-sass');
+var uglify          = require('gulp-uglify');
 var sourcemaps      = require('gulp-sourcemaps');
+var sass            = require('gulp-sass');
 var minifyCSS       = require('gulp-minify-css');
 var browserSync     = require('browser-sync');
 var autoprefixer    = require('gulp-autoprefixer');
@@ -97,7 +99,6 @@ gulp.task('images', function() {
 
 gulp.task('css', function() {
     return gulp.src(path.styles.src + '/' + path.styles.entryPointFilename) // the main SCSS file, which will just be a file that imports everything
-        .pipe(sourcemaps.init({ loadMaps: true, debug: true }))
         .pipe(sass({ // convert SCSS to CSS
             errLogToConsole: true,
             sourceComments: 'map', // create sourcemap for better dev tools workflow
@@ -110,9 +111,18 @@ gulp.task('css', function() {
         }))
         .pipe(concat(path.styles.outputFilename)) // the final filename of our combined css file
         .pipe(header(banner, { pkg: pkg, date: dateString }))
-        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(path.styles.dest)) // copy compressed and concatenated css file to destination folder
         .pipe(browserSync.reload({stream: true})); // notify browserSync to refresh
+});
+
+gulp.task('js', function() {
+    return gulp.src(path.scripts.includes)
+        .pipe(sourcemaps.init({ loadMaps: true, debug: true }))
+            .pipe(concat(path.scripts.outputFilename))
+            .pipe(uglify())
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest(path.scripts.dest))
+        .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('clean', function(callback) {
@@ -125,7 +135,8 @@ gulp.task('deploy', gulpSequence(
         'html',
         'fonts',
         'images',
-        'css'
+        'css',
+        'js'
     ]
 ));
 
@@ -134,4 +145,5 @@ gulp.task('default', ['deploy', 'browserSync'], function() { // run the 'deploy'
     gulp.watch(path.fonts.files, ['fonts']); // watch all font files and run the 'fonts' task when any of them changes
     gulp.watch(path.images.files, ['images']); // watch all image files and run the 'images' task when any of them changes
     gulp.watch(path.styles.files, ['css']); // watch all Sass files and run the 'css' task when any of them changes
+    gulp.watch(path.scripts.files, ['js']); // watch all JS files and run the 'js' task when any of them changes
 });
